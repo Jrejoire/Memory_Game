@@ -1,0 +1,223 @@
+img{
+	width: 60px;
+	height: 90px;
+}
+
+img:nth-last-child(1){
+	grid-column-end: -2 ;
+}
+img:nth-last-child(19){
+	grid-column-end: -2;    
+}
+img:nth-last-child(18){
+	grid-column-start: 1;    
+}
+img:nth-last-child(3){
+	grid-column-start: 2;   
+}
+img:nth-last-child(21){
+	grid-column-start: 2;   
+}
+
+
+.A#face { 
+	background: url("A.jpeg");
+	background-size: auto 100%;
+	background-position: center;
+	display: block;
+	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+  	padding-right: 60px; 
+}
+.B#face { 
+	background: url("B.jpeg");
+	background-size: auto 100%;
+	background-position: center;
+	display: block;
+	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+  	padding-right: 60px; 
+}
+.C#face { 
+	background: url("C.jpeg");
+	background-size: auto 100%;
+	background-position: center;
+	display: block;
+	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+  	padding-right: 60px; 
+}
+.D#face { 
+	background: url("D.jpeg");
+	background-size: auto 100%;
+	background-position: center;
+	display: block;
+	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+  	padding-right: 60px; 
+}
+.E#face { 
+	background: url("E.jpeg");
+	background-size: auto 100%;
+	background-position: center;
+	display: block;
+	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+  	padding-right: 60px; 
+}
+.F#face { 
+	background: url("F.jpeg");
+	background-size: auto 100%;
+	background-position: center;
+	display: block;
+	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+  	padding-right: 60px; 
+}
+.G#face { 
+	background: url("G.jpeg");
+	background-size: auto 100%;
+	background-position: center;
+	display: block;
+	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+  	padding-right: 60px; 
+}
+.H#face { 
+	background: url("H.jpeg");
+	background-size: auto 100%;
+	background-position: center;
+	display: block;
+	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+  	padding-right: 60px; 
+}
+.I#face { 
+	background: url("I.jpeg");
+	background-size: auto 100%;
+	background-position: center;
+	display: block;
+	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+  	padding-right: 60px; 
+}
+.J#face { 
+	background: url("J.jpeg");
+	background-size: auto 100%;
+	background-position: center;
+	display: block;
+	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+  	padding-right: 60px; 
+}
+.K#face { 
+	background: url("K.jpeg");
+	background-size: auto 100%;
+	background-position: center;
+	display: block;
+	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+  	padding-right: 60px; 
+}
+.A2#face { 
+	background: url("A.jpeg");
+	background-size: auto 100%;
+	background-position: center;
+	display: block;
+	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+  	padding-right: 60px; 
+}
+.B2#face { 
+	background: url("B.jpeg");
+	background-size: auto 100%;
+	background-position: center;
+	display: block;
+	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+  	padding-right: 60px; 
+}
+.C2#face { 
+	background: url("C.jpeg");
+	background-size: auto 100%;
+	background-position: center;
+	display: block;
+	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+  	padding-right: 60px; 
+}
+.D2#face { 
+	background: url("D.jpeg");
+	background-size: auto 100%;
+	background-position: center;
+	display: block;
+	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+  	padding-right: 60px; 
+}
+.E2#face { 
+	background: url("E.jpeg");
+	background-size: auto 100%;
+	background-position: center;
+	display: block;
+	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+  	padding-right: 60px; 
+}
+.F2#face { 
+	background: url("F.jpeg");
+	background-size: auto 100%;
+	background-position: center;
+	display: block;
+	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+  	padding-right: 60px; 
+}
+.G2#face { 
+	background: url("G.jpeg");
+	background-size: auto 100%;
+	background-position: center;
+	display: block;
+	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+  	padding-right: 60px; 
+}
+.H2#face { 
+	background: url("H.jpeg");
+	background-size: auto 100%;
+	background-position: center;
+	display: block;
+	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+  	padding-right: 60px; 
+}
+.I2#face { 
+	background: url("I.jpeg");
+	background-size: auto 100%;
+	background-position: center;
+	display: block;
+	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+  	padding-right: 60px; 
+}
+.J2#face { 
+	background: url("J.jpeg");
+	background-size: auto 100%;
+	background-position: center;
+	display: block;
+	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+  	padding-right: 60px; 
+}
+.K2#face { 
+	background: url("K.jpeg");
+	background-size: auto 100%;
+	background-position: center;
+	display: block;
+	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+  	padding-right: 60px; 
+}
+
+
+
