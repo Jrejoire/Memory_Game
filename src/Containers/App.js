@@ -10,9 +10,10 @@ class App extends Component {
       select:[],
       found:[],
       face:false,
-      clicked:0
+      clicked:0,
     }
   }
+  
   //In order to add the clicked image to the selection state
   imageSelection = (event) => {
     let selected= this.state.select.concat(event.target.className);
@@ -20,25 +21,29 @@ class App extends Component {
     console.log(event.target.className);
   }
 
-  //Timeout function closing the turn cycle
-  timeout =(time)=> {
-    let delay;
-    function startTimeout(time){
-      let click = this.state.clicked;
-      delay = setTimeout(function(){ click =+ 1 }, time);
-      this.setState({ clicked: click });
+  setTimer = (delay) => {
+    if (this.timerHandle) {
+      return;
     }
-
-    function stopTimeout(){clearTimeout(delay);
-    }
+    this.timerHandle = setTimeout(() => {
+      this.setState({ clicked: 0, face: !this.state.face, select: [] });
+      this.timerHandle = 0;
+    }, delay);
   }
-  
+
+  clearTimer = () => {
+    if (this.timerHandle) {
+      clearTimeout(this.timerHandle);
+      this.timerHandle = 0;
+    }
+  };
+   
   //Conditions when image clicked
   handleClick = (event) => {
     this.setState({ clicked: this.state.clicked +1 });
 
     // Do nothing when background is clicked
-    if(event.target.className === 'container'){
+    if(event.target.className === 'wrapp'){
       this.setState({ clicked: this.state.clicked });
     }
 
@@ -55,10 +60,11 @@ class App extends Component {
     const targetChar = event.target.className.charAt(0);
     const selectChar = this.state.select.map(letter => letter.charAt(0));
     
-    if (this.state.clicked >=1 && this.state.select.includes(event.target.className)){
+    //Condition to avoid clicking the same card twice.
+    if (this.state.clicked && this.state.select.includes(event.target.className)){
       this.setState({ clicked: this.state.clicked })
     }   
-      else if (this.state.clicked >= 1 && selectChar.includes(targetChar)){
+      else if (this.state.clicked === 1 && selectChar.includes(targetChar)){
         console.log('SAME');
         this.imageSelection(event);
         this.setState({ face: true });
@@ -66,24 +72,22 @@ class App extends Component {
         this.setState({ found: pairFound });
 
         // timeout condition that closes the turn (cf next step)
-        this.timeout(500)
+        this.setTimer(500)
       }         
-      else if (this.state.clicked >= 1 && !selectChar.includes(targetChar)){
+      else if (this.state.clicked === 1 && !selectChar.includes(targetChar)){
         console.log('NOT SAME');
         this.imageSelection(event);
         this.setState({ face: true });
         
         // timeout condition that closes the turn (cf next step)
-        this.timeout(3000);
+        this.setTimer(1500);
       }
 
     // At 3rd click - To close turn cycle
 
     if(this.state.clicked === 2){
-
-      this.setState({ clicked: 0});
-      this.setState({ face: !this.state.face });
-      this.setState({ select: [] });
+      this.setState({ clicked: 0, face: !this.state.face, select: [] });
+      this.clearTimer();
     }
   }
 
@@ -114,8 +118,8 @@ class App extends Component {
     return (
         <div className = 'body'>
           <div className="App">
-            <h1>PI</h1>
-            <h2 >Puzzle Investigator</h2>
+            <h1>Investigator</h1>
+            <h2 >Find The Sole Suspect</h2>
             <br />
             <div className='wrapp' onClick={this.handleClick}>
             <Card letterProp={listLetters} faceProp={face} selectProp={select} foundProp={found}/> 
