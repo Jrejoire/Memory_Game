@@ -21,6 +21,7 @@ class App extends Component {
     console.log(event.target.className);
   }
 
+  //////Timer functions
   setTimer = (delay) => {
     if (this.timerHandle) {
       return;
@@ -30,14 +31,15 @@ class App extends Component {
       this.timerHandle = 0;
     }, delay);
   }
-
   clearTimer = () => {
     if (this.timerHandle) {
       clearTimeout(this.timerHandle);
       this.timerHandle = 0;
     }
   };
-   
+
+  // Rules of the Memory Game:
+
   //Conditions when image clicked
   handleClick = (event) => {
     this.setState({ clicked: this.state.clicked +1 });
@@ -47,16 +49,13 @@ class App extends Component {
       this.setState({ clicked: this.state.clicked });
     }
 
-    // Rules of the game:
     // At first click
-
     if (this.state.clicked <1 ){
       this.imageSelection(event);
       this.setState({ face: !this.state.face });
     }
 
     // At second click
-
     const targetChar = event.target.className.charAt(0);
     const selectChar = this.state.select.map(letter => letter.charAt(0));
     
@@ -64,6 +63,7 @@ class App extends Component {
     if (this.state.clicked && this.state.select.includes(event.target.className)){
       this.setState({ clicked: this.state.clicked })
     }   
+      // Successful pick - Founding pair condition
       else if (this.state.clicked === 1 && selectChar.includes(targetChar)){
         console.log('SAME');
         this.imageSelection(event);
@@ -71,20 +71,20 @@ class App extends Component {
         let pairFound= this.state.found.concat(this.state.select,event.target.className);
         this.setState({ found: pairFound });
 
-        // timeout condition that closes the turn (cf next step)
+        // timeout 
         this.setTimer(500)
       }         
+      // Unsuccessful pick 
       else if (this.state.clicked === 1 && !selectChar.includes(targetChar)){
         console.log('NOT SAME');
         this.imageSelection(event);
         this.setState({ face: true });
         
-        // timeout condition that closes the turn (cf next step)
+        // timeout 
         this.setTimer(1500);
       }
 
-    // At 3rd click - To close turn cycle
-
+    // Back up at 3rd click - To close turn cycle
     if(this.state.clicked === 2){
       this.setState({ clicked: 0, face: !this.state.face, select: [] });
       this.clearTimer();
@@ -128,29 +128,6 @@ class App extends Component {
         </div>
       )
   }
-
 }
 
 export default App;
-
-
-/*at render page:
-delete random card --- DONE
-when first card clicked: ---DONE
-  -change image --- DONE
-when second card clicked 
-  - change image
-if className first card = className second card then:
--border green
-- msg (validation)
-otherwise 
-timer 3s then change both image back
-when only K left + k clicked
-- win message*/
-
-/* 
-  1/click on 1 image
-  2/click on 2nd image
-  3/ if image1 === image2 then set id to face permanently
-  -otherwise timer 3 s to face false all + select ''
-*/
