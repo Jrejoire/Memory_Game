@@ -9,7 +9,7 @@ class App extends Component {
       listLetters:[],
       select:[],
       found:[],
-      face:false,
+      verso:false,
       clicked:0,
     }
   }
@@ -27,7 +27,7 @@ class App extends Component {
       return;
     }
     this.timerHandle = setTimeout(() => {
-      this.setState({ clicked: 0, face: !this.state.face, select: [] });
+      this.setState({ clicked: 0, verso: !this.state.verso, select: [] });
       this.timerHandle = 0;
     }, delay);
   }
@@ -45,14 +45,14 @@ class App extends Component {
     this.setState({ clicked: this.state.clicked +1 });
 
     // Do nothing when background is clicked
-    if(event.target.className === 'wrapp'){
+    if(event.target.className === 'wrap'){
       this.setState({ clicked: this.state.clicked });
     }
 
     // At first click
     if (this.state.clicked <1 ){
       this.imageSelection(event);
-      this.setState({ face: !this.state.face });
+      this.setState({ verso: !this.state.verso });
     }
 
     // At second click
@@ -67,7 +67,7 @@ class App extends Component {
       else if (this.state.clicked === 1 && selectChar.includes(targetChar)){
         console.log('SAME');
         this.imageSelection(event);
-        this.setState({ face: true });
+        this.setState({ verso: true });
         let pairFound= this.state.found.concat(this.state.select,event.target.className);
         this.setState({ found: pairFound });
 
@@ -78,15 +78,15 @@ class App extends Component {
       else if (this.state.clicked === 1 && !selectChar.includes(targetChar)){
         console.log('NOT SAME');
         this.imageSelection(event);
-        this.setState({ face: true });
+        this.setState({ verso: true });
         
         // timeout 
-        this.setTimer(1500);
+        this.setTimer(1000);
       }
 
     // Back up at 3rd click - To close turn cycle
     if(this.state.clicked === 2){
-      this.setState({ clicked: 0, face: !this.state.face, select: [] });
+      this.setState({ clicked: 0, verso: !this.state.verso, select: [] });
       this.clearTimer();
     }
   }
@@ -114,15 +114,15 @@ class App extends Component {
     ////////////////////////////////////////////////////////
 
   render() {
-    const { listLetters, face, select, found } = this.state;
+    const { listLetters, verso, select, found } = this.state;
     return (
         <div className = 'body'>
           <div className="App">
             <h1>Investigator</h1>
             <h2 >Find The Sole Suspect</h2>
             <br />
-            <div className='wrapp' onClick={this.handleClick}>
-            <Card letterProp={listLetters} faceProp={face} selectProp={select} foundProp={found}/> 
+            <div className='wrap' onClick={this.handleClick}>
+            <Card letterProp={listLetters} versoProp={verso} selectProp={select} foundProp={found}/> 
             </div>
           </div>
         </div>
