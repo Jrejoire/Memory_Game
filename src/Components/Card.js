@@ -5,7 +5,7 @@ const Card = ({ letterProp, versoProp, selectProp, foundProp }) => {
   return(
     letterProp.map((letter,i,j) =>{
       return(
-        <img id={`${((selectProp.includes(letter) && versoProp)?'recto':'verso')||(foundProp.includes(letter)?'':'verso')}`} 
+        <img id={`${(selectProp.includes(letter) && versoProp)||(foundProp.includes(letter))?'recto':'verso'}`} 
         className={letter} key={i} src={require('./'+`${letter.charAt(0)}`+'.jpeg')} alt='Silhouette'
         />
       )

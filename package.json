@@ -1,6 +1,6 @@
 {
   "homepage": "http://jrejoire.github.io/Memory_Game",
-  "name": "pi",
+  "name": "Memory_Game",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
