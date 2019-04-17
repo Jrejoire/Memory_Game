@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Card from '../Components/Card';
+import Navbar from '../Components/Navbar';
 
 class App extends Component {
   constructor(){
@@ -116,17 +117,17 @@ class App extends Component {
   render() {
     const { listLetters, verso, select, found } = this.state;
     return (
+      <div className='html'>
+        <Navbar />
         <div className = 'body'>
           <div className="App">
-            <h1>Investigator</h1>
-            <h2 >Find The Sole Suspect</h2>
-            <br />
             <div className='wrap' onClick={this.handleClick}>
             <Card letterProp={listLetters} versoProp={verso} selectProp={select} foundProp={found}/> 
             </div>
           </div>
         </div>
-      )
+      </div>
+    )
   }
 }
 

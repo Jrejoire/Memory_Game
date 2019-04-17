@@ -12,11 +12,10 @@
 	height: 100%;
 	background-color: black;
 	overflow-x: hidden;
-	padding: 1rem 5rem 4rem 5rem;
+	padding: 4rem 5rem 4rem 5rem;
 }
 
 .App {
   text-align: center;
-  color: #ffde72;
 }
 
