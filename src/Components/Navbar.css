@@ -1,9 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Neucha');
-/*@font-face{
-	font-family: 'Broken Detroit';
-	src: local('Broken Detroit'), local(Broken-Detroit), 
-	url('./Broken-Detroit');
-}*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Subrayada');
+@import url('https://fonts.googleapis.com/css?family=Denk+One');
 
 .navcontainer{
 	background-image: linear-gradient(#1a1a1a 80%, black); 
@@ -24,12 +20,15 @@
 }
 
 h1.item {
-	font-family: 'Neucha', cursive;
+	font-family: 'Montserrat Subrayada', sans-serif;
 }
 
-/*h2.item{
-	font-family: Broken Detroit;
-}*/
+h2.item{
+	font-family: 'Denk One', sans-serif;
+	text-shadow: -1px -1px 0px rgba(255,255,255,0.3), 1px 1px 0px rgba(0,0,0,0.8);
+	color: #ffffff;
+	opacity: 0.4;
+}
 
 @media all and (max-width: 500px){
 
