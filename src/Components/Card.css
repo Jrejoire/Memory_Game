@@ -4,22 +4,6 @@ img{
 	height: 8em;
 }
 
-img:nth-last-child(1){
-	grid-column-end: -2 ;
-}
-img:nth-last-child(19){
-	grid-column-end: -2;    
-}
-img:nth-last-child(18){
-	grid-column-start: 1;    
-}
-img:nth-last-child(3){
-	grid-column-start: 2;   
-}
-img:nth-last-child(21){
-	grid-column-start: 2;   
-}
-
 img#verso{ 
 	background: url("399772.jpg");
 	background-size: auto 100%;
@@ -39,10 +23,30 @@ img:hover{
 	box-shadow: 0px 0px 15px 1px white;
 }
 
+@media screen and (min-width: 767px) {
+ img:nth-last-child(1){
+	grid-column-end: -2 ;
+ }
+ img:nth-last-child(19){
+	grid-column-end: -2;    
+ }
+ img:nth-last-child(18){
+	grid-column-start: 1;    
+ }
+ img:nth-last-child(3){
+	grid-column-start: 2;   
+ }
+ img:nth-last-child(21){
+	grid-column-start: 2;   
+ }
+
+}
+  
+
 @media (min-width: 481px) and (max-width: 767px) {
   
   img{
-  	width: 100%;
+  	width: auto;
 	height: auto;
   }
   
