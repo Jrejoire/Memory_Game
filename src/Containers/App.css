@@ -13,9 +13,18 @@
 	background-color: black;
 	overflow-x: hidden;
 	padding: 4rem 5rem 4rem 5rem;
+
 }
 
 .App {
   text-align: center;
 }
 
+h2{
+	line-height: 5em;
+	font-family: 'Denk One', sans-serif;
+	text-shadow: -1px -1px 0px rgba(255,255,255,0.3), 1px 1px 0px rgba(0,0,0,0.8);
+	color: #ffffff;
+	opacity: 0.4;
+	text-align: center;
+}

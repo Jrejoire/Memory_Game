@@ -19,6 +19,11 @@
 	margin-top: 10px; 
 }
 
+.svg{
+	margin-left: auto;
+	stroke: black;
+}
+
 h1.item {
 	font-family: 'Montserrat Subrayada', sans-serif;
 }

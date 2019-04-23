@@ -12,6 +12,7 @@ class App extends Component {
       found:[],
       verso:false,
       clicked:0,
+      count:0
     }
   }
   
@@ -39,15 +40,23 @@ class App extends Component {
     }
   };
 
+  //// Turn Reset
+  reset = () => {
+    this.setState({ clicked: 0, verso: !this.state.verso, select: [] });
+      this.clearTimer();
+  }
+
   // Rules of the Memory Game:
 
   //Conditions when image clicked
   handleClick = (event) => {
     this.setState({ clicked: this.state.clicked +1 });
+    this.setState({ count:  this.state.count +1 })
 
     // Do nothing when background is clicked
     if(event.target.className === 'wrap'){
       this.setState({ clicked: this.state.clicked });
+      this.setState({ count:  this.state.count });
     }
 
     // At first click
@@ -63,6 +72,7 @@ class App extends Component {
     //Condition to avoid clicking the same card twice.
     if (this.state.clicked && this.state.select.includes(event.target.className)){
       this.setState({ clicked: this.state.clicked })
+      this.setState({ count:  this.state.count });
     }   
       // Successful pick - Founding pair condition
       else if (this.state.clicked === 1 && selectChar.includes(targetChar)){
@@ -87,11 +97,9 @@ class App extends Component {
 
     // Back up at 3rd click - To close turn cycle
     if(this.state.clicked === 2){
-      this.setState({ clicked: 0, verso: !this.state.verso, select: [] });
-      this.clearTimer();
+      this.reset();
     }
   }
-
 
   componentWillMount(){
   //Preparing the list of letters (Shuffle + Random)
@@ -115,7 +123,7 @@ class App extends Component {
     ////////////////////////////////////////////////////////
 
   render() {
-    const { listLetters, verso, select, found } = this.state;
+    const { listLetters, verso, select, found, count } = this.state;
     return (
       <div className='html'>
         <Navbar />
@@ -125,6 +133,7 @@ class App extends Component {
             <Card letterProp={listLetters} versoProp={verso} selectProp={select} foundProp={found}/> 
             </div>
           </div>
+          <h2>Total clicks: {count}</h2>
         </div>
       </div>
     )

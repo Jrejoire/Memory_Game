@@ -1,7 +1,7 @@
 
 img{
-	width: 60px;
-	height: 90px;
+	width: 5em;
+	height: 8em;
 }
 
 img:nth-last-child(1){
@@ -27,7 +27,12 @@ img#verso{
 	display: block;
 	-moz-box-sizing: border-box;
   	box-sizing: border-box;
-  	padding-right: 60px; 
+  	padding-right: 5em; 
+}
+
+img:hover{
+	transform: scale(1.05);
+	transition: ease-in-out;
 }
 
 #recto{
