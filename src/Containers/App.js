@@ -85,6 +85,11 @@ class App extends Component {
       this.setState({ face: !this.state.face });
       this.setState({ select: [] });
     }
+
+    if((this.state.listLetters.length - 1) === this.state.found.length ){
+      const oddFace = this.state.listLetters.filter(item => !this.state.found.includes(item));
+      console.log(`win! last face is: ${oddFace}`);
+    }
   }
 
 
