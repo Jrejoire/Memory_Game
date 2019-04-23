@@ -104,6 +104,11 @@ class App extends Component {
     if(this.state.clicked === 2){
       this.resetCycle();
     }
+
+    if((this.state.listLetters.length - 1) === this.state.found.length ){
+      const oddFace = this.state.listLetters.filter(item => !this.state.found.includes(item));
+      console.log(`win! last face is: ${oddFace}`);
+    }
   }
 
   componentWillMount(){
