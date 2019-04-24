@@ -43,14 +43,24 @@ grid-column-start: 2;
 grid-column-start: 2;   
 }
 
-
-@media (min-width: 100px) and (max-width: 767px) {
+@media (min-width: 600px) and (max-width: 767px) {
   
   img{
-  	width: 2.5em;
-	height: 3.5em;
+  	width: 3em;
+	height: 4em;
   }
   img#verso{
-  	padding-right: 2.5em;
+  	padding-right: 3em;
+  } 
+}
+
+@media (min-width: 100px) and (max-width: 600px) {
+  
+  img{
+  	width: 2em;
+	height: 3em;
+  }
+  img#verso{
+  	padding-right: 2em;
   } 
 }

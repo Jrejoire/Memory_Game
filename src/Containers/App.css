@@ -28,6 +28,13 @@ h2{
 	text-align: center;
 } 
 
+@media screen and (min-width: 1150px) {
+	.wrap{
+		margin-left: 10em;
+		margin-right: 10em;
+	}
+}
+
 @media (min-width: 100px) and (max-width: 767px) {
 	.wrap{
 		grid-gap: 1em 0.5em;
@@ -36,9 +43,4 @@ h2{
 		padding-top: 3em;
 	}
 }
-@media screen and (min-width: 1150px) {
-	.wrap{
-		margin-left: 10em;
-		margin-right: 10em;
-	}
-}
+
