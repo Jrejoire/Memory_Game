@@ -46,11 +46,6 @@ class App extends Component {
       this.clearTimer();
   }
 
-  /*resetAll = () => {
-    this.resetCycle();
-    this.setState({ count: 0 });
-  }*/
-
   // Rules of the Memory Game:
 
   //Conditions when image clicked
@@ -103,11 +98,6 @@ class App extends Component {
     // Back up at 3rd click - To close turn cycle
     if(this.state.clicked === 2){
       this.resetCycle();
-    }
-
-    if((this.state.listLetters.length - 1) === this.state.found.length ){
-      const oddFace = this.state.listLetters.filter(item => !this.state.found.includes(item));
-      console.log(`win! last face is: ${oddFace}`);
     }
   }
 
