@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/Memory_Game/static/media/D.31e38317.jpeg"
   },
   {
-    "revision": "4f85206b49f350779d85",
-    "url": "/Memory_Game/static/css/main.04f970da.chunk.css"
+    "revision": "f88cf1ac88142fb9799c",
+    "url": "/Memory_Game/static/css/main.afe5342a.chunk.css"
   },
   {
     "revision": "624fc732ad1401db9d5b",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/Memory_Game/static/media/K.1b9abf50.jpeg"
   },
   {
-    "revision": "8252e4bc6b4d68994141",
+    "revision": "70dbe6652bcc61dcf979",
     "url": "/Memory_Game/static/js/2.3d801874.chunk.js"
   },
   {
@@ -36,8 +36,8 @@ self.__precacheManifest = [
     "url": "/Memory_Game/static/media/C.c21de8c7.jpeg"
   },
   {
-    "revision": "4f85206b49f350779d85",
-    "url": "/Memory_Game/static/js/main.3d862156.chunk.js"
+    "revision": "f88cf1ac88142fb9799c",
+    "url": "/Memory_Game/static/js/main.d3165ee6.chunk.js"
   },
   {
     "revision": "d703619c3ebf4e8bb72978cc345b971c",
@@ -64,11 +64,11 @@ self.__precacheManifest = [
     "url": "/Memory_Game/static/media/J.f3a5f6e6.jpeg"
   },
   {
-    "revision": "8252e4bc6b4d68994141",
-    "url": "/Memory_Game/static/css/2.a15d1e6d.chunk.css"
+    "revision": "70dbe6652bcc61dcf979",
+    "url": "/Memory_Game/static/css/2.5b893cad.chunk.css"
   },
   {
-    "revision": "f8d4b0853407cd4c3ebe7cac87bbd047",
+    "revision": "83a2e468ba1d151782cf877cfc8706eb",
     "url": "/Memory_Game/index.html"
   }
 ];
