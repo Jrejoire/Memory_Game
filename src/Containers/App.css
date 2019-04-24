@@ -1,9 +1,9 @@
 .wrap{
 	display: grid;
-	grid-template-rows: repeat(5, auto);
-	grid-template-columns: repeat(5, auto);
+	grid-template-rows: repeat(5, 1fr);
+	grid-template-columns: repeat(5, 1fr);
 	grid-gap: 2em 1em;
-	justify-content: center;	
+	place-items: center;
 }
 
 .body{
@@ -13,7 +13,6 @@
 	background-color: black;
 	overflow-x: hidden;
 	padding: 4rem 5rem 4rem 5rem;
-
 }
 
 .App {
@@ -29,8 +28,17 @@ h2{
 	text-align: center;
 } 
 
-@media (min-width: 481px) and (max-width: 767px) {
+@media (min-width: 100px) and (max-width: 767px) {
 	img:nth-last-child(1){
 	grid-column-end: -3 ;
+	}
+	.wrap{
+		justify-content: center;
+	}
+}
+@media screen and (min-width: 1150px) {
+	.wrap{
+		margin-left: 10em;
+		margin-right: 10em;
 	}
 }

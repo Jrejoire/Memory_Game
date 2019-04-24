@@ -23,33 +23,34 @@ img:hover{
 	box-shadow: 0px 0px 15px 1px white;
 }
 
-@media screen and (min-width: 500px) {
-	img:nth-last-child(1){
-	grid-column-end: -2 ;
-	}
-	img:nth-last-child(19){
-	grid-column-end: -2;    
-	}
- 	img:nth-last-child(18){
-	grid-column-start: 1;    
- 	}
- 	img:nth-last-child(3){
-	grid-column-start: 2;   
- 	}
- 	img:nth-last-child(21){
-	grid-column-start: 2;   
+img:nth-last-child(1){
+grid-column-end: -2 ;
+}
+
+img:nth-last-child(19){
+grid-column-end: -2;    
+}
+
+	img:nth-last-child(18){
+grid-column-start: 1;    
 	}
 
+	img:nth-last-child(3){
+grid-column-start: 2;   
+	}
+
+	img:nth-last-child(21){
+grid-column-start: 2;   
 }
-  
+
 
 @media (min-width: 100px) and (max-width: 767px) {
   
   img{
-  	width: 4em;
-	height: 6em;
+  	width: 3em;
+	height: 5em;
   }
   img#verso{
-  	padding-right: 4em;
+  	padding-right: 3em;
   } 
 }
