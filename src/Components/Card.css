@@ -47,10 +47,10 @@ grid-column-start: 2;
 @media (min-width: 100px) and (max-width: 767px) {
   
   img{
-  	width: 3em;
-	height: 5em;
+  	width: 2.5em;
+	height: 3.5em;
   }
   img#verso{
-  	padding-right: 3em;
+  	padding-right: 2.5em;
   } 
 }

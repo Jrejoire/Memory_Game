@@ -29,11 +29,11 @@ h2{
 } 
 
 @media (min-width: 100px) and (max-width: 767px) {
-	img:nth-last-child(1){
-	grid-column-end: -3 ;
-	}
 	.wrap{
-		justify-content: center;
+		grid-gap: 1em 0.5em;
+	}
+	.body{
+		padding-top: 3em;
 	}
 }
 @media screen and (min-width: 1150px) {

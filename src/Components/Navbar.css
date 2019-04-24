@@ -35,6 +35,5 @@ h2.item{
 	.navcontainer{
 		justify-content: center;
 		flex-wrap: wrap;
-		height: 160px;
 	}
 }
