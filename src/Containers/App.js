@@ -40,10 +40,15 @@ class App extends Component {
     }
   };
 
-  //// Turn Reset
-  reset = () => {
+  //// Reset after 2 clicks
+  resetCycle = () => {
     this.setState({ clicked: 0, verso: !this.state.verso, select: [] });
       this.clearTimer();
+  }
+
+  resetAll = () => {
+    this.resetCycle();
+    this.setState({ count: 0 });
   }
 
   // Rules of the Memory Game:
@@ -97,7 +102,7 @@ class App extends Component {
 
     // Back up at 3rd click - To close turn cycle
     if(this.state.clicked === 2){
-      this.reset();
+      this.resetCycle();
     }
   }
 
@@ -126,7 +131,7 @@ class App extends Component {
     const { listLetters, verso, select, found, count } = this.state;
     return (
       <div className='html'>
-        <Navbar />
+        <Navbar onClick={this.resetAll}/>
         <div className = 'body'>
           <div className="App">
             <div className='wrap' onClick={this.handleClick}>

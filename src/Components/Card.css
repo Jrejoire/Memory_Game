@@ -4,6 +4,11 @@ img{
 	height: 8em;
 }
 
+img:hover{
+	transform: scale(1.05);
+	transition: ease-in-out;
+}
+
 img#verso{ 
 	background: url("399772.jpg");
 	background-size: auto 100%;
@@ -14,34 +19,27 @@ img#verso{
   	padding-right: 5em; 
 }
 
-img:hover{
-	transform: scale(1.05);
-	transition: ease-in-out;
-}
-
 #recto{
 	box-shadow: 0px 0px 15px 1px white;
 }
 
+//to form the marble solitaire shape
 img:nth-last-child(1){
 grid-column-end: -2 ;
 }
-
 img:nth-last-child(19){
 grid-column-end: -2;    
 }
-
-	img:nth-last-child(18){
+img:nth-last-child(18){
 grid-column-start: 1;    
-	}
-
-	img:nth-last-child(3){
-grid-column-start: 2;   
-	}
-
-	img:nth-last-child(21){
+}
+img:nth-last-child(3){
 grid-column-start: 2;   
 }
+img:nth-last-child(21){
+grid-column-start: 2;   
+}
+
 
 @media (min-width: 600px) and (max-width: 767px) {
   
