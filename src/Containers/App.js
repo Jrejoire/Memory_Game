@@ -40,16 +40,16 @@ class App extends Component {
     }
   };
 
-  //// Reset after 2 clicks
+  // Reset after 2 clicks
   resetCycle = () => {
     this.setState({ clicked: 0, verso: !this.state.verso, select: [] });
       this.clearTimer();
   }
 
-  resetAll = () => {
+  /*resetAll = () => {
     this.resetCycle();
     this.setState({ count: 0 });
-  }
+  }*/
 
   // Rules of the Memory Game:
 
@@ -131,7 +131,7 @@ class App extends Component {
     const { listLetters, verso, select, found, count } = this.state;
     return (
       <div className='html'>
-        <Navbar onClick={this.resetAll}/>
+        <Navbar />
         <div className = 'body'>
           <div className="App">
             <div className='wrap' onClick={this.handleClick}>
