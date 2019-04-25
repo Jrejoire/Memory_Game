@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Card from '../Components/Card';
 import Navbar from '../Components/Navbar';
+import Pop from '../Components/Pop';
 
 class App extends Component {
   constructor(){
@@ -12,7 +13,8 @@ class App extends Component {
       found:[],
       verso:false,
       clicked:0,
-      count:0
+      count:0,
+      suspect:''
     }
   }
   
@@ -44,6 +46,11 @@ class App extends Component {
   resetCycle = () => {
     this.setState({ clicked: 0, verso: !this.state.verso, select: [] });
       this.clearTimer();
+  }
+
+  resetAll = () => {
+    this.resetCycle();
+    this.setState({ count: 0 });
   }
 
   // Rules of the Memory Game:
@@ -112,27 +119,28 @@ class App extends Component {
           arr[j] = x;
         }
         return arr;
-      }
-    const letters = ['A','A2','B','B2','C','C2','D','D2','E','E2','F','F2','G','G2','H','H2','I','I2','J','J2','K','K2'];
-      const i = Math.floor(Math.random()*11);
-      const oddLetters = letters.slice(0,i).concat(letters.slice(i+1, letters.length));
-      const randomOddLetters = shuffle(oddLetters);
-    
-      this.setState({ listLetters:randomOddLetters });
     }
+    const letters = ['A','A2','B','B2','C','C2','D','D2','E','E2','F','F2','G','G2','H','H2','I','I2','J','J2','K','K2'];
+    const i = Math.floor(Math.random()*11);
+    const oddLetters = letters.slice(0,i).concat(letters.slice(i+1, letters.length));
+    const randomOddLetters = shuffle(oddLetters);
+    
+    const removedLetter = letters.filter(letter => !randomOddLetters.includes(letter));
+
+    this.setState({ listLetters:randomOddLetters, suspect: removedLetter });
+  }
     ////////////////////////////////////////////////////////
 
   render() {
-    const { listLetters, verso, select, found, count } = this.state;
+    const { listLetters, verso, select, found, count, suspect } = this.state;
     return (
       <div className='html'>
         <Navbar />
         <div className = 'body'>
-          <div className="App">
-            <div className='wrap' onClick={this.handleClick}>
+          <div className='wrap' onClick={this.handleClick}>
             <Card letterProp={listLetters} versoProp={verso} selectProp={select} foundProp={found}/> 
-            </div>
           </div>
+          <Pop suspectProp={suspect}/>
           <h2>Total clicks: {count}</h2>
         </div>
       </div>

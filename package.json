@@ -1,4 +1,4 @@
-  {
+{
   "homepage": "http://jrejoire.github.io/Memory_Game",
   "name": "Memory_Game",
   "version": "0.1.0",
@@ -7,8 +7,8 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "2.1.8",
-    "tachyons": "^4.11.1",
-    "webfontloader": "^1.6.28"
+    "reactjs-popup": "^1.3.2",
+    "tachyons": "^4.11.1"
   },
   "scripts": {
     "predeploy": "npm run build",

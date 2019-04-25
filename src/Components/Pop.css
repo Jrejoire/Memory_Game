@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Subrayada');
+@import url('https://fonts.googleapis.com/css?family=Denk+One');
+
+.modal {
+	height: 20em;
+	font-size: 12px;
+	background-color: black;
+}
+.container > button {
+	margin-top: 2em;
+	font-family: 'Denk One', sans-serif;	
+}
+
+.modal > .header {
+  width: 100%;
+  border-bottom: 1px solid white;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+  font-family: 'Montserrat Subrayada', sans-serif;
+  color: white;
+}
+.modal > .content {
+	position: relative;
+	width: 100%;
+	padding: 10px 5px;
+}
+.content > img {
+	padding: 10px;
+	height: 10em;
+	width: auto;
+}
+
+.content > img:hover{
+	transform: scale(1);
+}
+
+.modal > .actions {
+  width: 100%;
+  padding: 10px 5px;
+  margin: auto;
+  text-align: center;
+  font-family: 'Denk One', sans-serif;
+}
+.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -0.5em;
+  top: -0.5em;
+  font-size: 24px;
+  background: black;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+  color: white;
+}
+
+.bars{
+	position: absolute;
+	height: 10em;
+	width: 100%;
+	left:0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 1;
+	animation: inprison 3s;
+}
+
+@keyframes inprison {
+	from {
+		opacity: 0%;
+	}
+	80%{
+		opacity: 50%;
+	}
+
+	100%{
+		opacity: 100%;
+	}
+}
+
+@media (min-width: 100px) and (max-width: 767px) {
+	
+	.content > img{
+		height:7em;
+		width: auto;
+	}
+
+}
