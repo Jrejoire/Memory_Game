@@ -14,7 +14,8 @@ class App extends Component {
       verso:false,
       clicked:0,
       count:0,
-      suspect:''
+      suspect:'',
+      win:false
     }
   }
   
@@ -46,11 +47,6 @@ class App extends Component {
   resetCycle = () => {
     this.setState({ clicked: 0, verso: !this.state.verso, select: [] });
       this.clearTimer();
-  }
-
-  resetAll = () => {
-    this.resetCycle();
-    this.setState({ count: 0 });
   }
 
   // Rules of the Memory Game:
@@ -106,7 +102,11 @@ class App extends Component {
     if(this.state.clicked === 2){
       this.resetCycle();
     }
-    
+
+    /*if(this.state.listLetters.some(i=>this.state.found.includes(i)) && (this.state.select[0].charAt(0)).includes((this.state.suspect[0]).charAt(0))){
+      this.setState({ win: true });
+    }*/
+
   }
 
   componentWillMount(){
@@ -133,7 +133,7 @@ class App extends Component {
     ////////////////////////////////////////////////////////
 
   render() {
-    const { listLetters, verso, select, found, count, suspect } = this.state;
+    const { listLetters, verso, select, found, count, suspect, win } = this.state;
     return (
       <div className='html'>
         <Navbar />
@@ -141,7 +141,7 @@ class App extends Component {
           <div className='wrap' onClick={this.handleClick}>
             <Card letterProp={listLetters} versoProp={verso} selectProp={select} foundProp={found}/> 
           </div>
-          <Pop suspectProp={suspect}/>
+          <Pop suspectProp={suspect} countProp={count} winProp={win}/>
           <h2>Total clicks: {count}</h2>
         </div>
       </div>

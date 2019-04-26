@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Denk+One');
 
 .modal {
-	height: 20em;
+	height: 25em;
 	font-size: 12px;
 	background-color: black;
 }
@@ -30,6 +30,11 @@
 	height: 10em;
 	width: auto;
 }
+.content > p {
+	font-size: 1.2em;
+	font-family: 'Denk One', sans-serif;
+	color: white;
+}
 
 .content > img:hover{
 	transform: scale(1);
@@ -37,7 +42,7 @@
 
 .modal > .actions {
   width: 100%;
-  padding: 10px 5px;
+  padding: 0px 5px;
   margin: auto;
   text-align: center;
   font-family: 'Denk One', sans-serif;
