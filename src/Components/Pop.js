@@ -2,15 +2,16 @@ import React from 'react';
 import './Pop.css'; 
 import Popup from "reactjs-popup";
 
-const Pop = ({ suspectProp, countProp, winProp }) => {
-	return(
-		<div className='container'> 
-			<Popup trigger={{winProp}===true} modal>
-			    {Popup => (
-			     	<div className="modal">
+class Pop extends React.Component{ 
+	render(){
+		const { winProp, countProp, suspectProp } = this.props;
+		return(	
+			<div className='container'>
+				<Popup open={winProp}>
+			       	<div className="modal">
 					    <div className="header"> You found the suspect... </div>
 				        <div className="content">
-				        	<img src={require(`./${suspectProp[0].charAt(0)}.jpeg`)} alt='Portrait'/>
+				        	<img src={require(`./${suspectProp[0]}.jpeg`)} alt='Portrait'/>
 				        	<img className='bars' src={require('./bars.png')} alt='bars'/>
 				        	<p>You made it in {`${countProp}`} moves! Not Bad...</p>
 				        </div>
@@ -23,10 +24,12 @@ const Pop = ({ suspectProp, countProp, winProp }) => {
 				          	</button>
 				        </div>
 		      		</div>
-		    	)}
-  			</Popup>
-		</div>
-	)
+	  			</Popup>
+  			</div>
+		);
+		
+	}
+
 }
 
 export default Pop;

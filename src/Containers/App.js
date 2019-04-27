@@ -19,13 +19,6 @@ class App extends Component {
     }
   }
   
-  //In order to add the clicked image to the selection state
-  imageSelection = (event) => {
-    let selected= this.state.select.concat(event.target.className);
-    this.setState({ select: selected });
-    console.log(event.target.className);
-  }
-
   //////Timer functions
   setTimer = (delay) => {
     if (this.timerHandle) {
@@ -43,71 +36,85 @@ class App extends Component {
     }
   };
 
-  // Reset after 2 clicks
-  resetCycle = () => {
-    this.setState({ clicked: 0, verso: !this.state.verso, select: [] });
-      this.clearTimer();
+  comparingLetterArr = () => {
+    const { listLetters, found, suspect } = this.state;
+    const foundNoWrap = found.filter(letter=>letter!=='wrap');
+    const foundFinal = foundNoWrap.concat(suspect);
+
+      return foundFinal.length === listLetters.length
+  }
+  
+  //In order to add the clicked image to the selection state
+  imageSelection = (event) => {
+    let selected= this.state.select.concat(event.target.className);
+    this.setState({ select: selected });
+    console.log(event.target.className);
   }
 
   // Rules of the Memory Game:
 
   //Conditions when image clicked
   handleClick = (event) => {
-    this.setState({ clicked: this.state.clicked +1 });
-    this.setState({ count:  this.state.count +1 })
-
-    // Do nothing when background is clicked
-    if(event.target.className === 'wrap'){
-      this.setState({ clicked: this.state.clicked });
-      this.setState({ count:  this.state.count });
-    }
-
-    // At first click
-    if (this.state.clicked <1 ){
-      this.imageSelection(event);
-      this.setState({ verso: !this.state.verso });
-    }
-
-    // At second click
-    const targetChar = event.target.className.charAt(0);
-    const selectChar = this.state.select.map(letter => letter.charAt(0));
+    const { clicked, count, verso, select, found, suspect } = this.state;
+    //Never action when background is clicked
+    if (event.target.className !== 'wrap'){
+            
+      // At first click
+      this.setState({ clicked: clicked +1 });
+      this.setState({ count:  count +1 });
+            
+      if (clicked <1){
+        this.imageSelection(event);
+        this.setState({ verso: !verso });
+      }
     
-    //Condition to avoid clicking the same card twice.
-    if (this.state.clicked && this.state.select.includes(event.target.className)){
-      this.setState({ clicked: this.state.clicked })
-      this.setState({ count:  this.state.count });
-    }   
-      // Successful pick - Founding pair condition
-      else if (this.state.clicked === 1 && selectChar.includes(targetChar)){
-        console.log('SAME');
-        this.imageSelection(event);
-        this.setState({ verso: true });
-        let pairFound= this.state.found.concat(this.state.select,event.target.className);
-        this.setState({ found: pairFound });
+      // At second click
+      const targetChar = event.target.className.charAt(0);
+      const selectChar = select.map(letter => letter.charAt(0));
+      
+      //Condition to avoid clicking the same card twice.
+      if (clicked && select.includes(event.target.className)){
+        this.setState({ clicked: clicked })
+        this.setState({ count:  count });
+      }   
+        // Successful pick - Founding pair condition
+        else if (clicked === 1 && selectChar.includes(targetChar)){
+          console.log('SAME');
+          this.imageSelection(event);
+          this.setState({ verso: true });
+          let pairFound= found.concat(select,event.target.className);
+          this.setState({ found: pairFound });
 
-        // timeout 
-        this.setTimer(500)
-      }         
-      // Unsuccessful pick 
-      else if (this.state.clicked === 1 && !selectChar.includes(targetChar)){
-        console.log('NOT SAME');
-        this.imageSelection(event);
-        this.setState({ verso: true });
-        
-        // timeout 
-        this.setTimer(1000);
+          // timeout 
+          this.setTimer(500)
+        }         
+        // Unsuccessful pick 
+        else if (clicked === 1 && !selectChar.includes(targetChar)){
+          console.log('NOT SAME');
+          this.imageSelection(event);
+          this.setState({ verso: true });
+          
+          // timeout 
+          this.setTimer(1000);
+        }
+
+      // Back up at 3rd click - To close turn cycle
+      if(clicked === 2){
+        this.setState({ clicked: 0, verso: !verso, select: [] });
+        this.clearTimer();
       }
 
-    // Back up at 3rd click - To close turn cycle
-    if(this.state.clicked === 2){
-      this.resetCycle();
+      //Winning condition
+      if(this.comparingLetterArr() && suspect.includes(targetChar)){
+        this.setState({ win: true });
+      }
     }
-
-    /*if(this.state.listLetters.some(i=>this.state.found.includes(i)) && (this.state.select[0].charAt(0)).includes((this.state.suspect[0]).charAt(0))){
-      this.setState({ win: true });
-    }*/
-
-  }
+      else if(event.target.className === 'wrap'){
+      this.setState({ clicked: clicked });
+      this.setState({ count:  count });
+      this.setState({ verso: verso });
+      }
+    }
 
   componentWillMount(){
   //Preparing the list of letters (Shuffle + Random)
@@ -127,8 +134,9 @@ class App extends Component {
     const randomOddLetters = shuffle(oddLetters);
     
     const removedLetter = letters.filter(letter => !randomOddLetters.includes(letter));
+    const removedLetterChar = removedLetter[0].charAt(0);
 
-    this.setState({ listLetters:randomOddLetters, suspect: removedLetter });
+    this.setState({ listLetters:randomOddLetters, suspect: removedLetterChar });
   }
     ////////////////////////////////////////////////////////
 
