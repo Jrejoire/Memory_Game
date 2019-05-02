@@ -109,12 +109,12 @@ class App extends Component {
         this.setState({ win: true });
       }
     }
-      else if(event.target.className === 'wrap'){
-      this.setState({ clicked: clicked });
-      this.setState({ count:  count });
-      this.setState({ verso: verso });
+      else{
+        this.setState({ clicked: clicked });
+        this.setState({ count:  count });
+        this.setState({ verso: verso });
       }
-    }
+  }
 
   componentWillMount(){
   //Preparing the list of letters (Shuffle + Random)
